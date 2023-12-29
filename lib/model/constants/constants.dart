@@ -9,3 +9,9 @@ const String about_text_para_3 =
 
 const String home_screen_intro =
     "A Frontend focused Application Developer building the Frontend of Mobile Applications and Web Applications that leads to the success of the overall product";
+
+const String project_screen_intro =
+    "Here you will find some of the personal and clients projects that I created with each project containing its own case study";
+
+const String contact_screen_intro =
+    "Feel free to Contact me by submitting the form below and I will get back to you as soon as possible";
