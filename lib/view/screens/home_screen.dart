@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:web_portfolio/model/constants/constants.dart';
 import 'package:web_portfolio/view/widgets/social_media_bar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -56,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: AutoSizeText(
-                      "A Frontend focused Application Developer building the Frontend of Mobile Applications and Web Applications that leads to the success of the overall product",
+                      home_screen_intro,
                       style: TextStyle(color: Colors.grey.shade800),
                       textAlign: TextAlign.center,
                       maxFontSize: 20,
@@ -69,7 +70,7 @@ class HomeScreen extends StatelessWidget {
                       width: double.infinity,
                     ),
                   ),
-                  const Butt()
+                  const CustomElevatedButton(tittle: "RESUME")
                 ],
               ),
             ),
@@ -80,17 +81,20 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class Butt extends StatefulWidget {
-  const Butt({
-    super.key,
-  });
+class CustomElevatedButton extends StatefulWidget {
+  const CustomElevatedButton({super.key, required this.tittle});
+  final String tittle;
 
   @override
-  State<Butt> createState() => _ButtState();
+  State<CustomElevatedButton> createState() =>
+      _CustomElevatedButtonState(tittle: tittle);
 }
 
-class _ButtState extends State<Butt> {
+class _CustomElevatedButtonState extends State<CustomElevatedButton> {
+  final String tittle;
   bool isHover = false;
+
+  _CustomElevatedButtonState({required this.tittle});
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
@@ -110,11 +114,11 @@ class _ButtState extends State<Butt> {
                   side: BorderSide.none)),
               backgroundColor:
                   MaterialStateProperty.all(const Color(0xff764ABC))),
-          child: const Padding(
-            padding: EdgeInsets.all(10.0),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
             child: Text(
-              "RESUME",
-              style: TextStyle(color: Colors.white),
+              tittle,
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         ),
