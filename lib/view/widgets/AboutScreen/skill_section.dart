@@ -10,7 +10,11 @@ class SkillSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 450,
-      color: Colors.grey.shade300,
+      // color: Colors.grey.shade300,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.white,
+      ),
       padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

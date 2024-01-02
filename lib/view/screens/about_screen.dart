@@ -30,7 +30,7 @@ class AboutScreen extends StatelessWidget {
             Container(
               height: 4,
               width: 150,
-              color: Colors.blue,
+              color: Color.fromARGB(255, 167, 164, 236),
             ),
             const SizedBox(
               height: 20,
