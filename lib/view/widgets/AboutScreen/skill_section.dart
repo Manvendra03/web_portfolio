@@ -49,10 +49,13 @@ class SkillSection extends StatelessWidget {
                   tittle: "Firebase",
                 ),
                 SkillCard(
-                  tittle: "HTML",
+                  tittle: "DART",
                 ),
                 SkillCard(
                   tittle: "REST API",
+                ),
+                SkillCard(
+                  tittle: "HTML",
                 ),
               ],
             ),

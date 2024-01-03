@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           height: double.infinity,
           width: double.infinity,
           child: Image.asset(
-            "/background.jpg",
+            "assets/background.jpg",
             fit: BoxFit.cover,
             opacity: const AlwaysStoppedAnimation(.35),
           ),
@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
           child: Center(
             child: Container(
               alignment: Alignment.center,
-              height: 220,
+              height: 260,
               width: 800,
               margin: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(

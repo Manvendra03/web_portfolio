@@ -6,11 +6,13 @@ import 'package:web_portfolio/view/screens/project_screen.dart';
 import 'package:web_portfolio/view/widgets/navigation_bar_button.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  ScrollController _scrollController = ScrollController();
 
   // This widget is the root of your application.
   @override
@@ -44,7 +46,9 @@ class MyApp extends StatelessWidget {
                   NavigationBarButton(
                     tittle: "HOME",
                     ontap: () {
-                      print(MediaQuery.of(context).size.width);
+                      _scrollController.animateTo(0,
+                          duration: const Duration(milliseconds: 600),
+                          curve: Curves.easeIn);
                     },
                   ),
                   const SizedBox(
@@ -53,7 +57,12 @@ class MyApp extends StatelessWidget {
                   ),
                   NavigationBarButton(
                     tittle: "ABOUT",
-                    ontap: () {},
+                    ontap: () {
+                      _scrollController.animateTo(
+                          MediaQuery.of(context).size.height - 85,
+                          duration: const Duration(milliseconds: 600),
+                          curve: Curves.easeIn);
+                    },
                   ),
                   const SizedBox(
                     height: double.infinity,
@@ -61,7 +70,16 @@ class MyApp extends StatelessWidget {
                   ),
                   NavigationBarButton(
                     tittle: "PROJECT",
-                    ontap: () {},
+                    ontap: () {
+                      _scrollController.animateTo(
+                          (MediaQuery.of(context).size.width > 819
+                                  ? MediaQuery.of(context).size.height
+                                  : MediaQuery.of(context).size.height + 200) +
+                              MediaQuery.of(context).size.height -
+                              85,
+                          duration: const Duration(milliseconds: 600),
+                          curve: Curves.easeIn);
+                    },
                   ),
                   const SizedBox(
                     height: double.infinity,
@@ -69,7 +87,19 @@ class MyApp extends StatelessWidget {
                   ),
                   NavigationBarButton(
                     tittle: "CONTACT",
-                    ontap: () {},
+                    ontap: () {
+                      _scrollController.animateTo(
+                          (MediaQuery.of(context).size.width > 819
+                                  ? MediaQuery.of(context).size.height
+                                  : MediaQuery.of(context).size.height + 170) +
+                              MediaQuery.of(context).size.height -
+                              85 +
+                              (MediaQuery.of(context).size.width > 770
+                                  ? MediaQuery.of(context).size.height * 1.2
+                                  : MediaQuery.of(context).size.height * 2.9),
+                          duration: const Duration(milliseconds: 600),
+                          curve: Curves.easeIn);
+                    },
                   ),
                   const Flexible(
                     child: SizedBox(
@@ -79,9 +109,14 @@ class MyApp extends StatelessWidget {
                   ),
                 ]
               : [
-                  const Icon(
-                    Icons.menu,
-                    color: Colors.black,
+                  GestureDetector(
+                    onTap: () {
+                      print(MediaQuery.of(context).size.width);
+                    },
+                    child: const Icon(
+                      Icons.menu,
+                      color: Colors.black,
+                    ),
                   ),
                   const Flexible(
                     child: SizedBox(
@@ -93,6 +128,7 @@ class MyApp extends StatelessWidget {
           toolbarHeight: 85,
         ),
         body: SingleChildScrollView(
+          controller: _scrollController,
           child: Column(children: [
             SizedBox(
                 height: MediaQuery.of(context).size.height - 85,
@@ -104,22 +140,28 @@ class MyApp extends StatelessWidget {
                   : const EdgeInsets.only(top: 50, left: 20, right: 20),
               color: Colors.grey.shade200,
               height: MediaQuery.of(context).size.width > 819
-                  ? MediaQuery.of(context).size.height
-                  : MediaQuery.of(context).size.height + 170,
+                  ? MediaQuery.of(context).size.height + 30
+                  : MediaQuery.of(context).size.width > 400
+                      ? MediaQuery.of(context).size.height + 200
+                      : MediaQuery.of(context).size.height + 330,
               child: const AboutScreen(),
             ),
             Container(
               height: MediaQuery.of(context).size.width > 770
                   ? MediaQuery.of(context).size.height + 150
-                  : MediaQuery.of(context).size.width * 2.6,
+                  : (MediaQuery.of(context).size.width > 511)
+                      ? MediaQuery.of(context).size.width * 2.6
+                      : MediaQuery.of(context).size.width * 3.5,
               width: MediaQuery.of(context).size.width,
               color: Colors.grey.shade200,
               child: const ProjectScreen(),
             ),
             Container(
-              padding: const EdgeInsets.only(top: 50, left: 100, right: 100),
+              padding: MediaQuery.of(context).size.width > 770
+                  ? const EdgeInsets.only(top: 50, left: 100, right: 100)
+                  : const EdgeInsets.only(top: 50, left: 30, right: 30),
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(color: Colors.grey.shade100),
+              decoration: BoxDecoration(color: Colors.grey.shade200),
               child: const ContactScreen(),
             ),
           ]),

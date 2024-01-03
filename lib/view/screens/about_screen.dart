@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:web_portfolio/main.dart';
 import 'package:web_portfolio/view/widgets/AboutScreen/about_section.dart';
 import 'package:web_portfolio/view/widgets/AboutScreen/skill_section.dart';
 
