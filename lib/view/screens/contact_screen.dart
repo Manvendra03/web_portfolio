@@ -49,7 +49,7 @@ class _ContactScreenState extends State<ContactScreen> {
               width: double.infinity,
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding:const EdgeInsets.symmetric(horizontal: 10),
               width: 700,
               child: AutoSizeText(
                 contact_screen_intro,
@@ -98,7 +98,7 @@ class _ContactScreenState extends State<ContactScreen> {
                           color: Colors.grey.shade500),
                     ),
                   )),
-              SizedBox(
+             const SizedBox(
                 height: 20,
               ),
               Text(
@@ -125,7 +125,7 @@ class _ContactScreenState extends State<ContactScreen> {
                           color: Colors.grey.shade500),
                     ),
                   )),
-              SizedBox(
+             const SizedBox(
                 height: 20,
               ),
               Text(
