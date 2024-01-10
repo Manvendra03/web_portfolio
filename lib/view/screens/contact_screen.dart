@@ -212,7 +212,9 @@ class _ContactScreenState extends State<ContactScreen> {
   @override
   void dispose() {
     // TODO: implement dispose
-    // txt1.dispose();
+    txt1.dispose();
+    txt2.dispose();
+    txt3.dispose();
     super.dispose();
   }
 }

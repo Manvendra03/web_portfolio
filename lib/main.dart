@@ -135,22 +135,22 @@ class MyApp extends StatelessWidget {
         body: SingleChildScrollView(
           controller: _scrollController,
           child: Column(children: [
-            // SizedBox(
-            //     height: MediaQuery.of(context).size.height - 85,
-            //     width: MediaQuery.of(context).size.width,
-            //     child: const HomeScreen()),
-            // Container(
-            //   padding: MediaQuery.of(context).size.width > 810
-            //       ? const EdgeInsets.only(top: 50, left: 100, right: 100)
-            //       : const EdgeInsets.only(top: 50, left: 20, right: 20),
-            //   color: Colors.grey.shade200,
-            //   height: MediaQuery.of(context).size.width > 819
-            //       ? MediaQuery.of(context).size.height + 30
-            //       : MediaQuery.of(context).size.width > 400
-            //           ? MediaQuery.of(context).size.height + 200
-            //           : MediaQuery.of(context).size.height + 330,
-            //   child: const AboutScreen(),
-            // ),
+            SizedBox(
+                height: MediaQuery.of(context).size.height - 85,
+                width: MediaQuery.of(context).size.width,
+                child: const HomeScreen()),
+            Container(
+              padding: MediaQuery.of(context).size.width > 810
+                  ? const EdgeInsets.only(top: 50, left: 100, right: 100)
+                  : const EdgeInsets.only(top: 50, left: 20, right: 20),
+              color: Colors.grey.shade200,
+              height: MediaQuery.of(context).size.width > 819
+                  ? MediaQuery.of(context).size.height + 30
+                  : MediaQuery.of(context).size.width > 400
+                      ? MediaQuery.of(context).size.height + 200
+                      : MediaQuery.of(context).size.height + 330,
+              child: const AboutScreen(),
+            ),
             Container(
               height: MediaQuery.of(context).size.width > 770
                   ? MediaQuery.of(context).size.height + 150
@@ -161,14 +161,14 @@ class MyApp extends StatelessWidget {
               color: Colors.grey.shade200,
               child: const ProjectScreen(),
             ),
-            // Container(
-            //   padding: MediaQuery.of(context).size.width > 770
-            //       ? const EdgeInsets.only(top: 50, left: 100, right: 100)
-            //       : const EdgeInsets.only(top: 50, left: 30, right: 30),
-            //   width: MediaQuery.of(context).size.width,
-            //   decoration: BoxDecoration(color: Colors.grey.shade200),
-            //   child: const ContactScreen(),
-            // ),
+            Container(
+              padding: MediaQuery.of(context).size.width > 770
+                  ? const EdgeInsets.only(top: 50, left: 100, right: 100)
+                  : const EdgeInsets.only(top: 50, left: 30, right: 30),
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(color: Colors.grey.shade200),
+              child: const ContactScreen(),
+            ),
           ]),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:web_portfolio/model/constants/constants.dart';
 import 'package:web_portfolio/model/constants/project_list.dart';
 
@@ -66,7 +67,7 @@ class ProjectScreen extends StatelessWidget {
               width: double.infinity,
               // color: Colors.grey,
               child: GridView.builder(
-                // physics: const NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: MediaQuery.of(context).size.width > 770
                     ? (MediaQuery.of(context).size.width > 1060)
                         ? const SliverGridDelegateWithFixedCrossAxisCount(
@@ -103,12 +104,16 @@ class ProjectScreen extends StatelessWidget {
                         Flexible(
                           flex: 3,
                           child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10)),
                               width: 150,
-                              padding: EdgeInsets.symmetric(vertical: 10),
+                              // padding: EdgeInsets.symmetric(vertical: 10),
                               height: double.infinity,
-                              color: Colors.white,
                               child: Image.network(
-                                  "https://www.91-img.com/pictures/151039-v4-vivo-t2x-mobile-phone-large-1.jpg?tr=q-80")),
+                                ProjectList[index].project_image,
+                                fit: BoxFit.fitHeight,
+                              )),
                         ),
                         const SizedBox(
                           width: 10,
@@ -136,9 +141,11 @@ class ProjectScreen extends StatelessWidget {
                                       .project_description
                                       .toString(),
                                   style: TextStyle(color: Colors.grey.shade700),
-                                  maxFontSize: 16,
+                                  maxFontSize: 12,
                                   minFontSize: 12,
                                   maxLines: 2,
+                                  softWrap: true,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                                 const Flexible(
                                   child: SizedBox(
@@ -146,7 +153,13 @@ class ProjectScreen extends StatelessWidget {
                                   ),
                                 ),
                                 ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: () async {
+                                    final Uri _url = Uri.parse(
+                                        ProjectList[index].project_link);
+                                    if (!await launchUrl(_url)) {
+                                      throw Exception('Could not launch $_url');
+                                    }
+                                  },
                                   style: ButtonStyle(
                                       elevation:
                                           const MaterialStatePropertyAll(10),
