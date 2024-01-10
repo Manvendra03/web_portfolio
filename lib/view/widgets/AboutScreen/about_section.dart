@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:web_portfolio/model/constants/constants.dart';
-import 'package:web_portfolio/view/screens/home_screen.dart';
+import 'package:web_portfolio/view/widgets/custom_elevated_button.dart';
 import 'package:web_portfolio/view/widgets/AboutScreen/about_text_widget.dart';
 
 class AboutSection extends StatelessWidget {
@@ -29,7 +29,7 @@ class AboutSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AboutTextWidget(text: about_text_para_1),
-              const SizedBox(
+              SizedBox(
                 height: 20,
                 width: double.infinity,
               ),
@@ -44,7 +44,9 @@ class AboutSection extends StatelessWidget {
             ],
           ),
           CustomElevatedButton(
-            tittle: "CONTACT ME",
+            tittle: "RESUME",
+            url:
+                "https://drive.google.com/file/d/104FhILUAxWG5j1kSXVShgAf0tN-mzrj8/view?usp=sharing",
           ),
         ],
       ),

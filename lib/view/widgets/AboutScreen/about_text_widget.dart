@@ -13,7 +13,7 @@ class AboutTextWidget extends StatelessWidget {
       style: TextStyle(color: Colors.black),
       textAlign: TextAlign.start,
       maxFontSize: 22,
-      minFontSize: 16,
+      minFontSize: 12,
       maxLines: 5,
     );
   }

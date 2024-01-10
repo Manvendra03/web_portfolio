@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:web_portfolio/model/constants/constants.dart';
+import 'package:web_portfolio/model/constants/project_list.dart';
 
 class ProjectScreen extends StatelessWidget {
   const ProjectScreen({
@@ -121,9 +122,9 @@ class ProjectScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Spacer(),
-                                const AutoSizeText(
-                                  "WallCraft : The Wallpaper App",
-                                  style: TextStyle(
+                                AutoSizeText(
+                                  ProjectList[index].project_name.toString(),
+                                  style: const TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold),
                                   maxFontSize: 25,
@@ -131,7 +132,9 @@ class ProjectScreen extends StatelessWidget {
                                   maxLines: 1,
                                 ),
                                 AutoSizeText(
-                                  "This is an simple wallpaper app with best user interface and  the best user experience This is an simple wallpaper app with best user interface and  the best user experience",
+                                  ProjectList[index]
+                                      .project_description
+                                      .toString(),
                                   style: TextStyle(color: Colors.grey.shade700),
                                   maxFontSize: 16,
                                   minFontSize: 12,
